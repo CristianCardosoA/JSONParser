@@ -1,6 +1,5 @@
 //
 //  JSONParser.swift
-//  Tec de Monterrey
 //
 //  Created by Cristian Cardoso on 5/3/17.
 //  Copyright © 2017 Cristian Cardoso. All rights reserved.
