@@ -19,46 +19,6 @@ class JSONParser : NSObject {
         return _mInstance!
     }
     
-    func parseBuldings(JSONData: [NSDictionary])  -> [Building]{
-        
-        var buldingsArr : [Building] = []
-        
-        for item in JSONData  {
-            
-            var lat : Double = 0.0
-            var lng : Double = 0.0
-            let id = item[JSON_KEYS.BULDINGS.JSON_KEY_ID] as? String
-            if let location = item[JSON_KEYS.BULDINGS.JSON_KEY_LOCATION] as? [String : AnyObject]{
-                
-                if let lat_ng = location[JSON_KEYS.BULDINGS.JSON_KEY_LAT]{
-                    if ((lat_ng is NSNull) == false){
-                        lat = lat_ng as! Double
-                    }
-                }
-                if let lng_ng = location[JSON_KEYS.BULDINGS.JSON_KEY_LNG]{
-                    if ((lng_ng is NSNull) == false){
-                        lng = lng_ng as! Double
-                    }
-                }
-            }
-            
-            let urlPhoto360 = item[JSON_KEYS.BULDINGS.JSON_KEY_PHOTO360] as? String
-            let urlVideo360 = item[JSON_KEYS.BULDINGS.JSON_KEY_VIDEO360] as? String
-            let urlIsometric = item[JSON_KEYS.BULDINGS.JSON_KEY_ISOMETRIC] as? String
-            let name = item[JSON_KEYS.BULDINGS.JSON_KEY_NAME] as? String
-            let description = item[JSON_KEYS.BULDINGS.JSON_KEY_DESCRIPTION] as? String
-            let urlIcon = item[JSON_KEYS.BULDINGS.JSON_KEY_ICON] as? String
-            let vr = item[JSON_KEYS.BULDINGS.JSON_KEY_VR] as? String
-            let offices = item[JSON_KEYS.BULDINGS.JSON_KEY_OFFICES] as? String
-
-            let building = Building(urlPhoto360: urlPhoto360, urlVideo360: urlVideo360, urlIsometric: urlIsometric, location: Location(lat: lat, lng : lng), name: name, description: description, urlIcon: urlIcon, id: id, vr: vr, offices: offices)
-            buldingsArr.append(building)
-        }
-
-        
-        return buldingsArr
-    }
-    
     func parseCampus(JSONData: [NSDictionary])  -> [Campus] {
         
         var campusArr : [Campus] = []
