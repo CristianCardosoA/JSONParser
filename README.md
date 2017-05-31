@@ -1,6 +1,6 @@
 # JSONParser
 
-```
+```ruby
 func fetchCampusesHTTP(){
                 
         let parameters = ["where": ["instituteId" : GlobalState.getInstance().instituteId]] as [String : AnyObject]
